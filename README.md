@@ -1,55 +1,65 @@
-<<<<<<< HEAD
+---
 # NiserCodeLab
-A Web App created by NISER Students for hosting coding competitons
-=======
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**NiserCodeLab** is a web application created by NISER students to host coding competitions. This project is a part of the NISER Coding Club, and we welcome contributions from the community.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Frontend:** React TypeScript
+- **Backend:** Django
 
-## Expanding the ESLint configuration
+## How to Set Up
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+To set up the NiserCodeLab project on your local machine, follow the steps below:
 
-- Configure the top-level `parserOptions` property like this:
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/sugar-syrup/NiserCodeLab.git
+   ```
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+2. **Set Up the Virtual Environment**
+   ```bash
+   python -m venv .\venv
+   ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+3. **Activate the Virtual Environment**
+   - For Windows:
+     ```bash
+     .\venv\Scripts\activate
+     ```
+   - For Linux or MacOS:
+     ```bash
+     source .\venv\bin\activate
+     ```
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+4. **Install Backend Dependencies**
+   ```bash
+   pip install -r .\NiserCodeLabBackend\requirements.txt
+   ```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
->>>>>>> 231a338 (Added README)
+5. **Install Frontend Dependencies**
+   ```bash
+   cd .\NiserCodeLabFrontend\
+   npm i
+   ```
+
+6. **Build the Frontend**
+   ```bash
+   npm run build
+   ```
+
+7. **Run the Backend Server**
+   ```bash
+   cd ..\NiserCodeLabBackend\
+   python manage.py runserver
+   ```
+
+## Contributions
+
+The app is currently under development, and we welcome contributions from anyone interested. Whether you're a seasoned developer or just getting started, there's a place for you in this project.
+
+## About
+
+This project is led by [Me](https://github.com/sugar-syrup) as part of the [**NISER Coding Club**](https://sdgniser.github.io/).
+
+---
