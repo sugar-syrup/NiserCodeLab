@@ -1,4 +1,4 @@
 from django.shortcuts import render
 
-def index(request):  # Add comments or other code as needed
+def index(request): 
     return render(request, 'dist/index.html')

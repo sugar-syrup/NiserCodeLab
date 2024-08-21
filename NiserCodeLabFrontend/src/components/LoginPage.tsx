@@ -2,16 +2,24 @@ import React, { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 import { useNavigate } from 'react-router-dom';
+import useAuthStore from './datastores/authstore';
 
-const LandingPage: React.FC = () => {
+const LoginPage: React.FC = () => {
   const [displayedText, setDisplayedText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
-  const navigate = useNavigate(); // Use navigate to handle redirection
+  const navigate = useNavigate();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const {login} = useAuthStore.getState();
 
-  const title = "Welcome to NISER Code Lab";
+  const title = "Type your credentials";
   const typingSpeed = 150; // Adjust typing speed here
 
+  const handleLogin = async () => {
+    await login(username, password);
+  }
   useEffect(() => {
     let currentIndex = 0;
     const typeTitle = () => {
@@ -72,12 +80,12 @@ const LandingPage: React.FC = () => {
             fontFamily: 'Courier New, Courier, monospace',
             '&:hover': {
               borderColor: '#f7951c',
-              backgroundColor: 'rgba(255, 165, 0, 0.1)',
+              backgroundColor: 'rgba(0, 255, 0, 0.1)',
             }
           }}
-          onClick={() => navigate('/login')} // Redirect to /login
+          onClick={() => navigate('/')}
         >
-          Login
+          Home
         </Button>
         <Button
           variant="contained"
@@ -86,7 +94,7 @@ const LandingPage: React.FC = () => {
             color: '#000',
             fontFamily: 'Courier New, Courier, monospace',
             '&:hover': {
-              backgroundColor: '#ff8c00',
+              backgroundColor: '#00cc00',
             }
           }}
         >
@@ -115,8 +123,88 @@ const LandingPage: React.FC = () => {
           |
         </Box>
       </Box>
+
+      {/* Login Form */}
+      <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '20px',
+        padding: '20px',
+        border: '1px solid #f7951c',
+        borderRadius: '5px',
+        backgroundColor: '#000',
+      }}
+    >
+      <TextField
+        label="Username"
+        variant="outlined"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        sx={{
+          input: {
+            color: '#f7951c',
+          },
+          label: {
+            color: '#f7951c',
+          },
+          '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+              borderColor: '#f7951c',
+            },
+            '&:hover fieldset': {
+              borderColor: '#f7951c',
+            },
+            '&.Mui-focused fieldset': {
+              borderColor: '#f7951c',
+            },
+          },
+        }}
+      />
+      <TextField
+        label="Password"
+        type="password"
+        variant="outlined"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        sx={{
+          input: {
+            color: '#f7951c',
+          },
+          label: {
+            color: '#f7951c',
+          },
+          '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+              borderColor: '#f7951c',
+            },
+            '&:hover fieldset': {
+              borderColor: '#f7951c',
+            },
+            '&.Mui-focused fieldset': {
+              borderColor: '#f7951c',
+            },
+          },
+        }}
+      />
+      <Button
+        variant="contained"
+        onClick={handleLogin}
+        sx={{
+          backgroundColor: '#f7951c',
+          color: '#000',
+          fontFamily: 'Courier New, Courier, monospace',
+          '&:hover': {
+            backgroundColor: '#00cc00',
+          }
+        }}
+      >
+        Login
+      </Button>
+    </Box>
     </Box>
   );
 };
 
-export default LandingPage;
+export default LoginPage;
