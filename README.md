@@ -1,4 +1,3 @@
----
 # NiserCodeLab
 
 **NiserCodeLab** is a web application created by NISER students to host coding competitions. This project is a part of the NISER Coding Club, and we welcome contributions from the community.
