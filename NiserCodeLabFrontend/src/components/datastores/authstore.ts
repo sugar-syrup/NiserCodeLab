@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { useNavigate } from 'react-router-dom';
 
 
 interface AuthStore {
@@ -7,9 +8,10 @@ interface AuthStore {
     login: (username: string, password: string) => void
     logout: () => void
 }
-
+const navigate = useNavigate();
 const useAuthStore = create<AuthStore>((set) => ({
     token: null,
+    
     setToken: (token) => set({ token }),
     logout: () => {
 
@@ -33,8 +35,10 @@ const useAuthStore = create<AuthStore>((set) => ({
             body: JSON.stringify({ username, password })
         })
         const data = await response.json()
-        if (data.token) {
+
+        if (data.token && response.ok) {
             set({ token: data.token })
+            navigate("/dashboard")
     }}
 }))
 
