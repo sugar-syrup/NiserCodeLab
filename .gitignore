@@ -1,9 +1,8 @@
 /venv/
 *.pyc
 /NiserCodeLabBackend/NiserCodeLabBackend/__pycache__/
-/NiserCodeLabFrontend/node_modules/
 /NiserCodeLabBackend/db.sqlite3
-# NiserCodeLabFrontend specific ignores
+
 NiserCodeLabFrontend/logs
 NiserCodeLabFrontend/*.log
 NiserCodeLabFrontend/npm-debug.log*
@@ -11,18 +10,5 @@ NiserCodeLabFrontend/yarn-debug.log*
 NiserCodeLabFrontend/yarn-error.log*
 NiserCodeLabFrontend/pnpm-debug.log*
 NiserCodeLabFrontend/lerna-debug.log*
-
-NiserCodeLabFrontend/node_modules
-NiserCodeLabFrontend/dist
-NiserCodeLabFrontend/dist-ssr
-NiserCodeLabFrontend/*.local
-
 NiserCodeLabFrontend/.vscode/*
-!NiserCodeLabFrontend/.vscode/extensions.json
-NiserCodeLabFrontend/.idea
-NiserCodeLabFrontend/.DS_Store
-NiserCodeLabFrontend/*.suo
-NiserCodeLabFrontend/*.ntvs*
-NiserCodeLabFrontend/*.njsproj
-NiserCodeLabFrontend/*.sln
-NiserCodeLabFrontend/*.sw?
+
