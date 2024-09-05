@@ -2,12 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
-import { useNavigate } from 'react-router-dom';
 
 const LandingPage: React.FC = () => {
   const [displayedText, setDisplayedText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
-  const navigate = useNavigate(); // Use navigate to handle redirection
 
   const title = "Welcome to NISER Code Lab";
   const typingSpeed = 150; // Adjust typing speed here
@@ -50,8 +48,7 @@ const LandingPage: React.FC = () => {
         justifyContent: 'center',
         alignItems: 'center',
         fontFamily: 'Courier New, Courier, monospace',
-        position: 'relative',
-        width: '100vw', // Ensure full viewport width
+        position: 'relative'
       }}
     >
       {/* Buttons positioned in the top right corner */}
@@ -72,10 +69,9 @@ const LandingPage: React.FC = () => {
             fontFamily: 'Courier New, Courier, monospace',
             '&:hover': {
               borderColor: '#f7951c',
-              backgroundColor: 'rgba(255, 165, 0, 0.1)',
+              backgroundColor: 'rgba(0, 255, 0, 0.1)',
             }
           }}
-          onClick={() => navigate('/login')} // Redirect to /login
         >
           Login
         </Button>
@@ -86,7 +82,7 @@ const LandingPage: React.FC = () => {
             color: '#000',
             fontFamily: 'Courier New, Courier, monospace',
             '&:hover': {
-              backgroundColor: '#ff8c00',
+              backgroundColor: '#00cc00',
             }
           }}
         >
